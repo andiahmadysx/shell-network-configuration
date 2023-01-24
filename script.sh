@@ -6,11 +6,11 @@
 # Set Permission
 chmod +x script.sh
 # Create variable to loop the program
-params=true
+while_var=true
 
 # Set while looping
 
-while $params ; do
+while $while_var ; do
 echo " "
 
 echo "## Select Option ##"
@@ -34,10 +34,12 @@ case $OPTION in
 ##
 ifconfig
 ;;
+
 2 )
 ##
 nmcli connection show
 ;;
+
 3 )
 ##
 read -p "Ipv4 Address : " IP_ADDRESS
@@ -47,6 +49,7 @@ read -p "Ipv4 DNS : " DNS
 read -p "Type : " TYPE
 nmcli connection add ipv4.addresses $IP_ADDRESS ifname $NAME ipv4.gateway $IP_GATEWAY ipv4.dns $DNS type $TYPE
 ;;
+
 4 )
 ##
 read -p "Connection Name : " CON_NAME
@@ -58,6 +61,7 @@ else
 echo "Exit Option..."
 fi
 ;;
+
 5 )
 ##
 clear
@@ -92,7 +96,7 @@ esac
 ;;
 
 6 )
-####
+##
 read -p "Connection name to Activate : " ACTIVATE_NAME
 nmcli connection up $ACTIVATE_NAME
 ;;
@@ -101,7 +105,7 @@ read -p "Connection name to Deactivate : " DEACTIVATE_NAME
 nmcli connection down $DEACTIVATE_NAME
 ;;
 8 )
-###
+##
 clear
 exit
 esac
